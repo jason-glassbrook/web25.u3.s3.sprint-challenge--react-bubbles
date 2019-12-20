@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React from 'react'
+
+import { server } from 'routes'
+import { authios } from 'tools/auth'
 
 const initialColor = {
   color: '',
@@ -8,8 +10,8 @@ const initialColor = {
 
 const ColorList = ({ colors, updateColors }) => {
   console.log (colors)
-  const [editing, setEditing] = useState (false)
-  const [colorToEdit, setColorToEdit] = useState (initialColor)
+  const [editing, setEditing] = React.useState (false)
+  const [colorToEdit, setColorToEdit] = React.useState (initialColor)
 
   const editColor = color => {
     setEditing (true)
