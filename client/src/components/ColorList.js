@@ -18,6 +18,11 @@ const ColorList = ({ colors, updateColors }) => {
     setColorToEdit (color)
   }
 
+  const reset = () => {
+    setEditing (false)
+    setColorToEdit (initialColor)
+  }
+
   const saveEdit = (e) => {
     e.preventDefault ()
     // Make a put request to save your updated color
@@ -42,6 +47,7 @@ const ColorList = ({ colors, updateColors }) => {
       .catch ((error) => {
         console.log (error)
       })
+      .finally (reset)
   }
 
   const deleteColor = (color) => {
@@ -61,6 +67,7 @@ const ColorList = ({ colors, updateColors }) => {
       .catch ((error) => {
         console.log (error)
       })
+      .finally (reset)
   }
 
   return (
