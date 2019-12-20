@@ -1,10 +1,28 @@
 import React from 'react'
 
-const Logout = () => {
+// import authios from 'tools/authios'
+import { client } from 'routes'
+import { user } from 'tools/auth'
+
+const Logout = (props) => {
+  const tryLogout = (e) => {
+    e.preventDefault ()
+    user.clear ()
+
+    props.history.push (client.root ())
+  }
+
   return (
-    <div className='Logout'>
-      <h1>Welcome to the Bubble App!</h1>
-      <p>Build a logout page here</p>
+    <div className='Logout logout-page'>
+
+      <h1>Goodbye from React Bubbles!</h1>
+
+      <form
+      className='logout-form'
+      onSubmit={tryLogout}>
+        <button type='submit'>Log Out</button>
+      </form>
+
     </div>
   )
 }
