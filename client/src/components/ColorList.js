@@ -33,7 +33,11 @@ const ColorList = ({ colors, updateColors }) => {
       )
       .then ((response) => {
         console.log (response)
-        updateColors (response.data)
+
+        const id = response.data
+        updateColors (
+          colors.filter ((c) => (c.id !== id))
+        )
       })
       .catch ((error) => {
         console.log (error)
