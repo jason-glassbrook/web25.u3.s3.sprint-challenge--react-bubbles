@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from 'axios'
 
-import { server } from 'routes';
-import user from 'tools/user';
+import { server } from 'routes'
+import user from 'tools/user'
 
 const authios = () => {
   return axios.create ({
@@ -9,7 +9,7 @@ const authios = () => {
     headers : {
       Authorization : user.token.get (),
     },
-  });
-};
+  })
+}
 
-export default authios;
+export default authios
