@@ -5,7 +5,10 @@ import {
   Route,
 } from 'react-router-dom'
 
-import Login from './components/Login'
+import PrivateRoute from 'components/PrivateRoute'
+import Login from 'components/Login'
+import Logout from 'components/Logout'
+import BubblePage from 'components/BubblePage'
 import './styles.scss'
 
 function App () {
@@ -13,15 +16,17 @@ function App () {
     <Router>
       <div className='App'>
         <Switch>
-          {/*
-            Build a PrivateRoute component that will
-            display BubblePage when you're authenticated
-          */}
-          {/* <Route exact path='/logout'
-          component={Logout}
-          /> */}
-          <Route exact path='/login'
+          <PrivateRoute
+          exact path='/bubbles'
+          component={BubblePage}
+          />
+          <Route
+          exact path='/login'
           component={Login}
+          />
+          <Route
+          exact path='/logout'
+          component={Logout}
           />
           <Route
           component={Login}
