@@ -14,7 +14,7 @@ const BubblePage = () => {
   React.useEffect (() => {
     authios ()
       .get (
-        server.colors.GET ()
+        server.colors.GET (),
       )
       .then ((response) => {
         console.log (response)

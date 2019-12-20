@@ -29,7 +29,7 @@ const ColorList = ({ colors, updateColors }) => {
     // make a delete request to delete this color
     authios ()
       .delete (
-        server.color.DELETE (color.id)
+        server.color.DELETE (color.id),
       )
       .then ((response) => {
         console.log (response)
