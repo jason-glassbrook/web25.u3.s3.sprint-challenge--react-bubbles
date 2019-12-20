@@ -9,6 +9,9 @@ import PrivateRoute from 'components/PrivateRoute'
 import Login from 'components/Login'
 import Logout from 'components/Logout'
 import BubblePage from 'components/BubblePage'
+
+import { client } from 'routes'
+
 import './styles.scss'
 
 function App () {
@@ -17,15 +20,15 @@ function App () {
       <div className='App'>
         <Switch>
           <PrivateRoute
-          exact path='/bubbles'
+          exact path={client.bubbles ()}
           component={BubblePage}
           />
           <Route
-          exact path='/login'
+          exact path={client.login ()}
           component={Login}
           />
           <Route
-          exact path='/logout'
+          exact path={client.logout ()}
           component={Logout}
           />
           <Route

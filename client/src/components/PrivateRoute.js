@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
+import { client } from 'routes'
 import { user } from 'tools/auth'
 
 const PrivateRoute = ({ component : Component, ...rest }) => {
@@ -10,7 +11,7 @@ const PrivateRoute = ({ component : Component, ...rest }) => {
         return (<Component {...props}/>)
       }
       else {
-        return (<Redirect to={'/login'}/>)
+        return (<Redirect to={client.login ()}/>)
       }
     }}/>
   )
