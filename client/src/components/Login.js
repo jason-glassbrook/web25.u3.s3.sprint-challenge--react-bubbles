@@ -69,18 +69,22 @@ const Login = (props) => {
   return (
     <div className='Login login-page'>
 
+      <h1>Welcome to React Bubbles!</h1>
+
       <form
       className='login-form'
       onSubmit={tryLogin}>
         <input
           type='text'
           name='username'
+          placeholder='username'
           value={state.creds.username}
           onChange={handleCredChange}
         />
         <input
           type='password'
           name='password'
+          placeholder='password'
           value={state.creds.password}
           onChange={handleCredChange}
         />
