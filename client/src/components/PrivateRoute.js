@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
-import user from 'tools/user'
+import user from 'tools/auth/user'
 
 const PrivateRoute = ({ component : Component, ...rest }) => {
   return (
