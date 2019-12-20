@@ -23,6 +23,25 @@ const ColorList = ({ colors, updateColors }) => {
     // Make a put request to save your updated color
     // think about where will you get the id from...
     // where is is saved right now?
+    authios ()
+      .put (
+        server.color.PUT (colorToEdit.id),
+        colorToEdit,
+      )
+      .then ((response) => {
+        console.log (response)
+
+        const edited = response.data
+        updateColors ([
+          // remove old version of color
+          ...(colors.filter ((c) => (c.id !== edited.id))),
+          // and append new version of color
+          edited,
+        ])
+      })
+      .catch ((error) => {
+        console.log (error)
+      })
   }
 
   const deleteColor = (color) => {
@@ -34,9 +53,9 @@ const ColorList = ({ colors, updateColors }) => {
       .then ((response) => {
         console.log (response)
 
-        const id = response.data
+        const deleted_id = response.data
         updateColors (
-          colors.filter ((c) => (c.id !== id))
+          colors.filter ((c) => (c.id !== deleted_id))
         )
       })
       .catch ((error) => {
