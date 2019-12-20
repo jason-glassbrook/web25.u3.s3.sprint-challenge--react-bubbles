@@ -7,11 +7,11 @@
 /*//////////////////////////////////////
   exports : qualified short-names
 //////////////////////////////////////*/
-import authios from './authios';
+import axios from './authios';
 import user from './user';
 
 export default {
-  authios,
+  axios,
   user,
 };
 
